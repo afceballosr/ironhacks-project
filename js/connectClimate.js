@@ -1,5 +1,5 @@
 var xmlhttp1 = new XMLHttpRequest(); 
-var url = "https://api.openweathermap.org/data/2.5/weather?q=chicago&appid=6aa0bdb1f586c5630d60b6237dfce45c";
+var url = "http://api.openweathermap.org/data/2.5/weather?q=chicago&appid=6aa0bdb1f586c5630d60b6237dfce45c";
 xmlhttp1.open("GET", url, true);
 xmlhttp1.send();
 

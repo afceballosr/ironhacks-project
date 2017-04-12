@@ -65,12 +65,16 @@
 								<select id="firestation" style="visibility:hidden">
 									<option>All</option>
 								</select>
-								<br><input type="button" class="btn btn-lg btn-primary" value="FIND ME HOME!" onclick="findMeHome();">
+								<br><p><strong>With Libraries:</strong><input type="checkbox" name="books" onclick = "library.style.visibility = (this.checked) ? 'visible' : 'hidden'" /></p>
+								<select id="library" style="visibility:hidden">
+									<option>All</option>
+								</select>
 							</form>
 						</td>
 						<td>
 							<form name="resultform">
 								<p><strong>House for you?</strong><input type="text" name="houseTo" disabled><p><br>
+								<br><input type="button" class="btn btn-lg btn-primary" value="FIND ME HOME!" onclick="findMeHome();">
 							</form>
 						</td>
 					</tr>
@@ -93,5 +97,6 @@
 		<script language="javascript" type="text/javascript" src="js/connectPoliceStations.js"></script>
 		<script language="javascript" type="text/javascript" src="js/connectFarmerMarkets.js"></script>
 		<script language="javascript" type="text/javascript" src="js/connectFireStations.js"></script>
+		<script language="javascript" type="text/javascript" src="js/connectLibraries.js"></script>
 	<body>
 </html>

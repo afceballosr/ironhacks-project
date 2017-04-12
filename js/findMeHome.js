@@ -1,4 +1,4 @@
-function findMeHome(){ 
+function findMeHome(){
 	if (document.searchform.kmsTo.value <= 2){
 		if (document.searchform.food.checked === true) {
 			if (document.searchform.security.checked === true){
