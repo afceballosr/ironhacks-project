@@ -31,6 +31,15 @@ function initMap() {
 	if (document.getElementById('bikes').checked) {
 		connectBikeRacks(map);
 	}
+	if (document.getElementById('condoms').checked) {
+		connectCondomSites(map);
+	}
+	if (document.getElementById('warming').checked) {
+		connectWarmingCenters(map);
+	}
+	if (document.getElementById('crimes').checked) {
+		connectCrimeMap(map);
+	}
 }
 
 function connectPoliceStations(map){
@@ -166,6 +175,75 @@ function connectBikeRacks(map){
 					icon: 'images/BikeRack.png'
 				});
 				brmarker.setMap(map);
+			}
+		}
+	};
+}
+
+function connectCondomSites(map){
+	var xmlhttp8 = new XMLHttpRequest();
+	var url = "https://data.cityofchicago.org/api/views/azpf-uc4s/rows.json?accessType=DOWNLOAD";
+	xmlhttp8.open("GET", url, true);
+	xmlhttp8.send();
+
+	xmlhttp8.onreadystatechange = function() {
+		if (xmlhttp8.readyState == 4 && xmlhttp8.status == 200) {
+			var myArr = xmlhttp8.responseText;
+			var text = myArr;
+			var json = JSON.parse(text);
+			for(var i = 0; i < json.data.length; i++){
+				var cdmarker = new google.maps.Marker({
+					position: new google.maps.LatLng(json.data[i][14][1], json.data[i][14][2]),
+					title: 'cd'+(i+1),
+					icon: 'images/CondomSite.png'
+				});
+				cdmarker.setMap(map);
+			}
+		}
+	};
+}
+
+function connectWarmingCenters(map){
+	var xmlhttp9 = new XMLHttpRequest();
+	var url = "https://data.cityofchicago.org/api/views/h243-v2q5/rows.json?accessType=DOWNLOAD";
+	xmlhttp9.open("GET", url, true);
+	xmlhttp9.send();
+
+	xmlhttp9.onreadystatechange = function() {
+		if (xmlhttp9.readyState == 4 && xmlhttp9.status == 200) {
+			var myArr = xmlhttp9.responseText;
+			var text = myArr;
+			var json = JSON.parse(text);
+			for(var i = 0; i < json.data.length; i++){
+				var wcmarker = new google.maps.Marker({
+					position: new google.maps.LatLng(json.data[i][31][1], json.data[i][31][2]),
+					title: 'wc'+(i+1),
+					icon: 'images/Warming.png'
+				});
+				wcmarker.setMap(map);
+			}
+		}
+	};
+}
+
+function connectCrimeMap(map){
+	var xmlhttp10 = new XMLHttpRequest();
+	var url = "https://data.cityofchicago.org/api/views/ijzp-q8t2/rows.json?accessType=DOWNLOAD";
+	xmlhttp10.open("GET", url, true);
+	xmlhttp10.send();
+
+	xmlhttp10.onreadystatechange = function() {
+		if (xmlhttp10.readyState == 4 && xmlhttp10.status == 200) {
+			var myArr = xmlhttp10.responseText;
+			var text = myArr;
+			var json = JSON.parse(text);
+			for(var i = 0; i < json.data.length; i++){
+				var crmarker = new google.maps.Marker({
+					position: new google.maps.LatLng(json.data[i][27], json.data[i][28]),
+					title: 'cr'+(i+1),
+					icon: 'images/Crime.png'
+				});
+				crmarker.setMap(map);
 			}
 		}
 	};
